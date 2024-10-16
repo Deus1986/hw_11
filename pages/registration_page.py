@@ -1,6 +1,5 @@
-import re
 from selene import browser, be, command, have
-from HW3.resources import resource_path
+from resources import resource_path
 
 
 class RegistrationPage:

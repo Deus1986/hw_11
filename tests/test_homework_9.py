@@ -1,5 +1,5 @@
-from HW3.data.users import user_semen
-from HW9.pages.registration_page import RegistrationPage
+from data.users import user_semen
+from pages.registration_page import RegistrationPage
 
 
 def test_hw_5():

@@ -1,6 +1,6 @@
 import allure
 
-from HW9.pages.registration_page import RegistrationPage
+from pages.registration_page import RegistrationPage
 
 
 class SimpleRegistrationPage:

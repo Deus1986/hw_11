@@ -32,3 +32,17 @@ def setup_browser(request):
     attach.add_logs(browser)
     attach.add_video(browser)
     browser.quit()
+
+
+@pytest.fixture(scope='function', autouse=True)
+def browser_management():
+    browser.config.base_url = "https://demoqa.com/automation-practice-form/"
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("excludeSwitches", ['enable-automation'])
+    options.page_load_strategy = "eager"
+    # options.add_argument('--headless')
+    browser.config.driver_options = options
+    browser.config.driver.maximize_window()
+
+    yield
+    browser.quit()

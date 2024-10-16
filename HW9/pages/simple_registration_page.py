@@ -1,3 +1,5 @@
+import allure
+
 from HW9.pages.registration_page import RegistrationPage
 
 
@@ -5,9 +7,11 @@ class SimpleRegistrationPage:
     def __init__(self):
         self.page = RegistrationPage()
 
+    @allure.step("Открыть страницу")
     def open(self):
         self.page.open_page()
 
+    @allure.step("Зарегестрировать пользователя")
     def register(self, user):
         self.page.fill_name(user.fully_name["name"])
         self.page.fill_lastname(user.fully_name["lastname"])
@@ -24,6 +28,7 @@ class SimpleRegistrationPage:
         self.page.select_city(user.state_city["city"])
         self.page.click_submit()
 
+    @allure.step("Проверить данные пользователя")
     def should_have_registered(self, user):
         self.page.should_have_registered(" ".join(user.fully_name.values()),
                                          user.email, user.gender, user.number,

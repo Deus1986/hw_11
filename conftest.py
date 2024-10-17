@@ -21,6 +21,7 @@ def setup_browser(request):
 
     options.capabilities.update(capabilities)
     options.page_load_strategy = "eager"
+    options.add_argument("window-size=1920,1080")
     driver = webdriver.Remote(
         command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options)
